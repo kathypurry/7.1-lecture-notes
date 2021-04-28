@@ -16,6 +16,14 @@ class SignupForm extends Component {
 
   // TODO: combine the onChange event handlers
 
+  handleValueChange = (e) => {
+    const {name } = e.target
+    const {value} = e.target
+    this.setState ({
+      [name] : value,
+    })
+  }
+
   handleFirstNameChange = (e) => {
     this.setState({
       firstName: e.target.value,
@@ -28,7 +36,11 @@ class SignupForm extends Component {
     });
   };
 
-  handleSubmit = (e) => {};
+  handleSubmit = (e) => {    
+    e.preventDefault();
+    const {firstName, lastName } = this.state
+    alert("form submitted by:" + " " + firstName +" "+ lastName);
+  };
 
   // TODO: write a method to return true if firstName and lastName are
   isValidInput = () => {};
@@ -45,7 +57,7 @@ class SignupForm extends Component {
           type="text"
           name="firstName"
           id="firstName"
-          onChange={this.handleFirstNameChange}
+          onChange={this.handleValueChange}
           value={firstName}
         />
 
@@ -55,7 +67,7 @@ class SignupForm extends Component {
           type="text"
           name="lastName"
           id="lastName"
-          onChange={this.handleLastNameChange}
+          onChange={this.handleValueChange}
           value={lastName}
         />
 

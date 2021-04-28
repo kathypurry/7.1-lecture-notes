@@ -7,12 +7,17 @@ import "./SignupForm.css";
 class SignupForm extends Component {
   constructor() {
     super();
-    // TODO: set initial state so we can track user's
-    this.state = {};
+    this.state = {
+      firstName : "",
+    };
   }
 
   // TODO: update react state when user types in the text input
-  handleFirstNameChange = (e) => {};
+  handleFirstNameChange = (e) => {
+    const { value } = e.target
+    this.setState({firstName : value})
+
+  };
 
   // TODO: handle form submission
   handleSubmit = (e) => {};
@@ -22,7 +27,8 @@ class SignupForm extends Component {
     console.log("rendering, firstName is:", firstName);
     return (
       <form className="SignupForm" onSubmit={this.handleSubmit}>
-        {/* TODO: create a label and text input to collect users first name */}
+        <label htmlFor="firstName">First Name:</label>
+        <input type="text" name="firstName" id="firstName" value={firstName} onChange={this.handleFirstNameChange}/>
         <button type="submit">Submit</button>
       </form>
     );

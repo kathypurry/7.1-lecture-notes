@@ -14,6 +14,7 @@ class SignupForm extends Component {
     // TODO: Update initial state
     this.state = {
       firstName: "",
+      lastName:"",
     };
   }
 
@@ -22,18 +23,22 @@ class SignupForm extends Component {
   };
 
   // TODO: complete the event handler:
-  handleLastNameChange = (e) => {};
+  handleLastNameChange = (e) => {
+    this.setState({ lastName : e.target.value})
+  };
 
   // TODO: when the form is submitted, alert the user with their first AND last name
   handleSubmit = (e) => {
     e.preventDefault();
-    alert("form submitted by:", this.state.firstName);
+    alert("form submitted by:" + this.state.firstName +" "+ this.state.lastName);
   };
 
   render() {
     const { firstName } = this.state;
+    const { lastName } = this.state
 
     console.log("rendering, firstName is:", firstName);
+    console.log("rendering, lastName is:", lastName)
     return (
       <form className="SignupForm" onSubmit={this.handleSubmit}>
         <label htmlFor="firstName">First Name:</label>
@@ -44,6 +49,16 @@ class SignupForm extends Component {
           onChange={this.handleFirstNameChange}
           value={firstName}
         />
+
+        <label htmlFor="lastName">Last Name:</label>
+        <input
+          type="text"
+          name="lastName"
+          id="lastName"
+          onChange={this.handleLastNameChange}
+          value={lastName}
+        />
+        
         {/* TODO: add jsx for the last name label and input */}
         <button type="submit">Submit</button>
       </form>

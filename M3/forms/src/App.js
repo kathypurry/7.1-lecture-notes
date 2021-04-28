@@ -1,7 +1,7 @@
 import WarmupCounter from "./Components/WarmupCounter";
-import SignupForm from "./Components/1.SignupForm";
+// import SignupForm from "./Components/1.SignupForm";
 // import SignupForm from "./Components/2.SignupForm";
-// import SignupForm from "./Components/3.SignupForm";
+import SignupForm from "./Components/3.SignupForm";
 // import SignupForm from "./Components/4.SignupForm";
 import "./App.css";
 
